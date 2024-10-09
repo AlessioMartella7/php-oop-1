@@ -13,7 +13,7 @@ class Movie {
         int $year,
         int $vote,
         string $language,
-        string $genre,
+        Genre $genre,
         )
     {
         $this->title = $title;

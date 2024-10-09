@@ -10,4 +10,7 @@ class Genre {
         $this->name = $name;
     }
 
+    function getGenre () {
+        return 'Genre:'.' '.$this->name;
+    }
 }

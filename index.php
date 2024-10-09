@@ -1,10 +1,17 @@
 <?php 
 include_once __DIR__.'/classes/Movie.php';
+include_once __DIR__.'/classes/Genre.php';
+$sciFi = new Genre('Sci-fi');
+$horror = new Genre('Horror');
+// film
+$theBlairWitchProject = new Movie ('The Blair Witch Project', 2000, 6 , 'English', $horror);
+$alien = new Movie ('Alien', 1979, 8, 'English', $sciFi);
+$sharknado = new Movie ('Sharknado', 2013, 3, 'Italian', $sciFi);
+
+// generi
 
 
-$theBlairWitchProject = new Movie ('The Blair Witch Project', 2000, 6 , 'English', 'Horror');
-$alien = new Movie ('Alien', 1979, 8, 'English', 'Sci-fi');
-$sharknado = new Movie ('Sharknado', 2013, 3, 'Italian', 'Sci-fi');
+
 
 ?>
 <!DOCTYPE html>
@@ -27,7 +34,7 @@ $sharknado = new Movie ('Sharknado', 2013, 3, 'Italian', 'Sci-fi');
                     <?= $theBlairWitchProject->year ?>
                     <?= $theBlairWitchProject->vote ?>
                     <?= $theBlairWitchProject->language ?>
-                    <?= $theBlairWitchProject->genre ?>
+                    <?= $theBlairWitchProject->genre->name ?>
                     <?= ($theBlairWitchProject->rateMovie());?>
                 </div>
                 <div class="col-12">
@@ -35,7 +42,7 @@ $sharknado = new Movie ('Sharknado', 2013, 3, 'Italian', 'Sci-fi');
                     <?= $alien->year ?>
                     <?= $alien->vote ?>
                     <?= $alien->language ?>
-                    <?= $alien->genre ?>
+                    <?= $alien->genre->name ?>
                     <?= ($alien->rateMovie());?>
                 </div>
                 <div class="col-12">
@@ -43,7 +50,7 @@ $sharknado = new Movie ('Sharknado', 2013, 3, 'Italian', 'Sci-fi');
                     <?= $sharknado->year ?>
                     <?= $sharknado->vote ?>
                     <?= $sharknado->language ?>
-                    <?= $sharknado->genre ?>
+                    <?= $sharknado->genre->name ?>
                     <?= ($sharknado->rateMovie());?>
                 </div>
             </div>
