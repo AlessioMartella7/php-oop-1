@@ -1,17 +1,7 @@
 <?php 
 include_once __DIR__.'/classes/Movie.php';
 include_once __DIR__.'/classes/Genre.php';
-$sciFi = new Genre('Sci-fi');
-$horror = new Genre('Horror');
-// film
-$theBlairWitchProject = new Movie ('The Blair Witch Project', 2000, 6 , 'English', $horror,$sciFi);
-$alien = new Movie ('Alien', 1979, 8, 'English', $sciFi, $horror);
-$sharknado = new Movie ('Sharknado', 2013, 3, 'Italian', $sciFi, $horror);
-
-// generi
-
-
-
+include_once __DIR__.'/db/db.php';
 
 ?>
 <!DOCTYPE html>
@@ -25,40 +15,46 @@ $sharknado = new Movie ('Sharknado', 2013, 3, 'Italian', $sciFi, $horror);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 </head>
 
-<body>
+<body class="bg-secondary">
     <main>
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <?= $theBlairWitchProject->title ?>
-                    <?= $theBlairWitchProject->year ?>
-                    <?= $theBlairWitchProject->vote ?>
-                    <?= $theBlairWitchProject->language ?>
-                    <?= $theBlairWitchProject->genre->name ?>
-                    <?= $theBlairWitchProject->subGenre->name ?>
-                    <?= ($theBlairWitchProject->rateMovie());?>
+            <div class="row my-5 bg-dark p-4">
+                <?php foreach($movies as $movie) { ?>
+                <div class="col-4">
+                    <div class="card border-warning mb-3" style="max-width: 25rem;">
+                        <div class="card-header card-title">
+                            <h3><?= $movie->title?></h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="card" style="width: 18rem;">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <p class="fs-4"> <strong>Year: </strong><?= $movie->year?></p>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <p class="fs-4"><strong>Vote: </strong><?= $movie->vote?></p>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <p class="fs-4"><strong>language:</strong> <?= $movie->language?></p>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <p class="fs-5"><strong> Genre: </strong><?= $movie->genre->name?></p>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <p class=""><strong>Sub-Genre:</strong> <?= $movie->subGenre->name?></p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-12">
-                    <?= $alien->title ?>
-                    <?= $alien->year ?>
-                    <?= $alien->vote ?>
-                    <?= $alien->language ?>
-                    <?= $alien->genre->name ?>
-                    <?= $alien->subGenre->name ?>
-                    <?= ($alien->rateMovie());?>
-                </div>
-                <div class="col-12">
-                    <?= $sharknado->title ?>
-                    <?= $sharknado->year ?>
-                    <?= $sharknado->vote ?>
-                    <?= $sharknado->language ?>
-                    <?= $sharknado->genre->name ?>
-                    <?= $sharknado->subGenre->name ?>
-                    <?= ($sharknado->rateMovie());?>
-                </div>
+
+                <?php } ?>
             </div>
     </main>
 </body>
+
+
 
 </html>
 
