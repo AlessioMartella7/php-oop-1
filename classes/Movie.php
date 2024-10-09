@@ -23,12 +23,10 @@ class Movie {
         $this->genre = $genre;
     }
 
-    function rateMovies () {
+    function rateMovie () {
         if($this->vote >=  6) {
             return 'Nice Movie!';
         } else return 'Better watch something else..';
         
     }
 }
-
-$theBlairWitchProject = new Movie ('The Blair Witch Project', 2000, 6 , 'en', 'horror');

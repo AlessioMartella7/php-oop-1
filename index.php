@@ -1,7 +1,11 @@
 <?php 
 include_once __DIR__.'/classes/Movie.php';
 
-var_dump($theBlairWitchProject->rateMovies());
+
+$theBlairWitchProject = new Movie ('The Blair Witch Project', 2000, 6 , 'English', 'Horror');
+$alien = new Movie ('Alien', 1979, 8, 'English', 'Sci-fi');
+$sharknado = new Movie ('Sharknado', 2013, 3, 'Italian', 'Sci-fi');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,9 +21,32 @@ var_dump($theBlairWitchProject->rateMovies());
 <body>
     <main>
         <div class="container">
-            <?= $theBlairWitchProject->title ?>
-
-        </div>
+            <div class="row">
+                <div class="col-12">
+                    <?= $theBlairWitchProject->title ?>
+                    <?= $theBlairWitchProject->year ?>
+                    <?= $theBlairWitchProject->vote ?>
+                    <?= $theBlairWitchProject->language ?>
+                    <?= $theBlairWitchProject->genre ?>
+                    <?= ($theBlairWitchProject->rateMovie());?>
+                </div>
+                <div class="col-12">
+                    <?= $alien->title ?>
+                    <?= $alien->year ?>
+                    <?= $alien->vote ?>
+                    <?= $alien->language ?>
+                    <?= $alien->genre ?>
+                    <?= ($alien->rateMovie());?>
+                </div>
+                <div class="col-12">
+                    <?= $sharknado->title ?>
+                    <?= $sharknado->year ?>
+                    <?= $sharknado->vote ?>
+                    <?= $sharknado->language ?>
+                    <?= $sharknado->genre ?>
+                    <?= ($sharknado->rateMovie());?>
+                </div>
+            </div>
     </main>
 </body>
 
