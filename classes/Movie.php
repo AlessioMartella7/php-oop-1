@@ -7,6 +7,7 @@ class Movie {
     public $vote;
     public $language;
     public $genre;
+    public $subGenre;
 
     function __construct(
         string $title,
@@ -14,6 +15,8 @@ class Movie {
         int $vote,
         string $language,
         Genre $genre,
+        Genre $subGenre,
+       
         )
     {
         $this->title = $title;
@@ -21,6 +24,7 @@ class Movie {
         $this->vote = $vote;
         $this->language = $language;
         $this->genre = $genre;
+        $this->subGenre = $subGenre;
     }
 
     function rateMovie () {
